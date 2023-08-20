@@ -217,7 +217,8 @@ class GlideElement(str):
             return self.__getattribute__(item)
 
         if self._parent_record:
-            if tv := self._parent_record.get_element(f"{self._name}.{item}"):
+            tv = self._parent_record.get_element(f"{self._name}.{item}")
+            if tv:
                 return tv
 
         if hasattr(self.get_value(), item):
